@@ -23,18 +23,22 @@ export async function onRequest(context) {
   }
 
   // store the data and return
-  await env.kvstore.put(kv_key, kv_data); //TODO: expire time
+  try {
+    await env.kvstore.put(kv_key, kv_data); //TODO: expire time ?
 
-  const url = URL.parse(request.url);
+    const url = URL.parse(request.url);
 
-  const ret = JSON.stringify({
-    id: kv_key,
-    data: url.origin + "/api/v2/" + kv_key,
-  }, null, 2);
+    const ret = JSON.stringify({
+      id: kv_key,
+      data: url.origin + "/api/v2/" + kv_key,
+    }, null, 2);
 
-  return new Response(ret, {
-    headers: {
-      'content-type': 'application/json; charset=UTF-8',
-    },
-  });
+    return new Response(ret, {
+      headers: {
+        'content-type': 'application/json; charset=UTF-8',
+      },
+    });
+  } catch (e) {
+    return new Response(e.message, {status: 500});
+  }
 }
