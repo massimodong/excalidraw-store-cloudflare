@@ -14,6 +14,7 @@ npx wrangler pages dev
 Following this link [https://developers.cloudflare.com/kv/get-started/](https://developers.cloudflare.com/kv/get-started/):
 * Fork this project to your own repository.
 * Create your own cloudflare pages project, by connecting it to your github repository. (Do not create a Worker project!)
+* Change the page project's build command to be `npm install`.
 * Create a KV namespace.
 * In your forked repository, update the file `wrangler.jsonc`. Change the `<BINDING_ID>` to your newly created KV namespace.
 * Push the changes to your repository.
