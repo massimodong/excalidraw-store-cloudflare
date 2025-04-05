@@ -25,9 +25,11 @@ export async function onRequest(context) {
   // store the data and return
   await env.kvstore.put(kv_key, kv_data); //TODO: expire time
 
+  const url = URL.parse(request.url);
+
   const ret = JSON.stringify({
     id: kv_key,
-    data: "TODO"
+    data: url.origin + "/api/v2/" + kv_key,
   }, null, 2);
 
   return new Response(ret, {
