@@ -1,5 +1,6 @@
 {
   "name": "excalidraw-store-cloudflare",
+  "build": "npm install",
   "pages_build_output_dir": "./public",
   "kv_namespaces": [
     {
