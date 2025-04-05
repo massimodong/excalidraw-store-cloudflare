@@ -18,3 +18,12 @@ Following this link [https://developers.cloudflare.com/kv/get-started/](https://
 * Create a KV namespace.
 * In your forked repository, update the file `wrangler.jsonc`. Change the `<BINDING_ID>` to your newly created KV namespace.
 * Push the changes to your repository.
+
+## CORS
+By default, this store server will set the header
+`Access-Control-Allow-Origin: *`.
+This allows any client to connect to this store server.
+To modify this behaviour, and to allow only specific domains to access this store server, create an environment variable named `CORS_ALLOW_ORIGIN` with the value `https://your-domain-name.com`.
+This will set the header
+`Access-Control-Allow-Origin: https://your-domain-name.com`.
+This can be done in Cloudflare Page Dashboard.
