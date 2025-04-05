@@ -10,4 +10,10 @@ Then, to start the store server locally, run
 npx wrangler pages dev
 ```
 
-## Deploy to Cloudflare
+## Deploy to Cloudflare Pages
+Following this link [https://developers.cloudflare.com/kv/get-started/](https://developers.cloudflare.com/kv/get-started/):
+* Fork this project to your own repository.
+* Create your own cloudflare pages project, by connecting it to your github repository. (Do not create a Worker project!)
+* Create a KV namespace.
+* In your forked repository, update the file `wrangler.jsonc`. Change the `<BINDING_ID>` to your newly created KV namespace.
+* Push the changes to your repository.
